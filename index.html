@@ -6,11 +6,15 @@
     <script src="https://npmcdn.com/react@15.3.1/dist/react.js"></script>
     <script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.js"></script>
     <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <style>
+        .emoji {-webkit-transform: scale(15); position: absolute; font-size:4em;}
+    </style>
   </head>
   <body style="background-color:pink; font-size:3em;">
-    <h3>What emoji and color are you?</h3>
+    <h3>What emoji are you?</h3>
     <div id="example1"></div>
     <div id="example2"></div>
+    
     <script type="text/babel">
 
     var HelloWorld = React.createClass({
@@ -36,13 +40,13 @@
                     var nameHash = "#" + this.calcColor(this.props.name);
                     var spanStyle = {backgroundColor : nameHash, minWidth:"100%", minHeight:800};
                     var textStyle = {color : nameHash, fontSize:"4em"};
+
                     console.log(spanStyle);
                     var emoji = this.calcEmoji(this.props.name);
                     
                     return (
                         <div>
-                            <div><span style={textStyle}>{this.props.name}  {emoji}</span></div>
-                            
+                            <div class="emoji" style={textStyle}>{emoji}</div>
                             <div><p style={spanStyle}> </p></div>
                         </div>
                     );
